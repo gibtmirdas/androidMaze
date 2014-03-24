@@ -15,6 +15,19 @@ public class Boule {
     public Boule() {
     }
 
+	public void setMvt(float posX, float posY, float vX, float vY, float vMax){
+		this.posX = posX;
+		this.posY = posY;
+		this.vX = vX;
+		this.vY = vY;
+		this.vMax = vMax;
+
+		rect.left = posY;
+		rect.top= posX;
+		rect.right = posY+size;
+		rect.bottom = posX+size;
+	}
+
     public float getPosX() {
         return posX;
     }
