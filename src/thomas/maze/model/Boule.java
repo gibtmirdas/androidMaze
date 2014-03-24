@@ -1,6 +1,7 @@
 package thomas.maze.model;
 
 import android.graphics.Color;
+import android.graphics.RectF;
 
 /**
  * Created by thomas on 11.03.14.
@@ -9,6 +10,7 @@ public class Boule {
 
     private float posX, posY, vX, vY, vMax, size;
     private Color color;
+    private RectF rect;
 
     public Boule() {
     }
@@ -67,5 +69,13 @@ public class Boule {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public RectF getRect() {
+        return rect;
+    }
+
+    public void setRect(RectF rect) {
+        this.rect = rect;
     }
 }

@@ -1,17 +1,19 @@
 package thomas.maze.model;
 
 import android.graphics.RectF;
+import thomas.maze.model.Type.Type;
 
 /**
  * Created by thomas on 11.03.14.
  */
-public class Cases extends RectF{
+public class Cases {
     private Type type;
+    private RectF rect;
     private int x, y;
 
     public Cases(Type type, float left, float top, float right, float bottom){
-        super(left, top, right, bottom);
         this.type = type;
+        rect = new RectF(left,top,right,bottom);
     }
 
     public Cases(Type type, int x, int y) {
@@ -36,10 +38,10 @@ public class Cases extends RectF{
             squareSize = winHeight / mazeHeight;
 
         // update position
-        this.left = squareSize*y;
-        this.top = squareSize*x;
-        this.right = squareSize*(y+1);
-        this.bottom = squareSize*(x+1);
+        rect.left = squareSize*y;
+        rect.top = squareSize*x;
+        rect.right = squareSize*(y+1);
+        rect.bottom = squareSize*(x+1);
     }
 
     public Type getType() {

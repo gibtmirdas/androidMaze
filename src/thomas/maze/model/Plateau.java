@@ -1,10 +1,12 @@
 package thomas.maze.model;
 
 import android.util.Log;
+import thomas.maze.model.Type.*;
+import thomas.maze.model.utils.FileInterface;
 
 import java.io.*;
 
-public class Plateau {
+public class Plateau implements FileInterface {
 
     /**
      * Cases types (array | file):
@@ -14,7 +16,6 @@ public class Plateau {
      * start    = 3|D
      * end      = 4|A
      */
-    //private int[][] maze;
     private Cases[][] maze;
 
     public Plateau() {
@@ -63,18 +64,17 @@ public class Plateau {
      * @throws Exception
      */
     private Type convertFileCharToType(char c) throws Exception{
-        Log.d("logcat",""+c);
         switch (c){
-            case '-':
-                return Type.Empty;
-            case '#':
-                return Type.Wall;
-            case 'o':
-                return Type.Hole;
-            case 'D':
-                return Type.Start;
-            case 'A':
-                return Type.End;
+            case FileInterface.EMPTY:
+                return new Empty();
+            case FileInterface.WALL:
+                return new Wall();
+            case FileInterface.HOLE:
+                return new Trou();
+            case FileInterface.START:
+                return new Depart();
+            case FileInterface.END:
+                return new Arrivee();
         }
         throw new Exception("logcat : Character not recognized for maze creating");
     }
@@ -83,7 +83,7 @@ public class Plateau {
         for (int i=0 ; i< maze.length ; i++){
             String val = "";
             for (int j=0 ; j< maze[i].length ; j++){
-                val += maze[i][j].getType().name();
+                val += maze[i][j].getType().getClass();
             }
             Log.d("logcat", val);
         }
@@ -94,14 +94,14 @@ public class Plateau {
         for(int i=0; i<maze.length; i++){
             for(int j=0; j<maze[i].length; j++){
                 //Check start
-                if(maze[i][j].getType() == Type.Start)
+                if(maze[i][j].getType().getClass() == Depart.class)
                     hasStart = true;
                 // Check End
-                if(maze[i][j].getType() == Type.End)
+                if(maze[i][j].getType().getClass() == Arrivee.class)
                     hasEnd = true;
                 // Check Border
                 if(i == 0 || j == 0 || i == (maze.length-1) || j== (maze[i].length-1))
-                    if(maze[i][j].getType() != Type.Wall){
+                    if(maze[i][j].getType().getClass() != Wall.class){
                         Log.d("logcat", "Not bordered");
                         return false;
                     }
