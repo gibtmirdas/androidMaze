@@ -2,7 +2,7 @@ package thomas.maze.model.utils;
 
 public interface FileInterface {
 	/**
-	 * Cases types (array | file):
+	 * Case types (array | file):
 	 * empty    = 0|-
 	 * wall     = 1|#
 	 * hole     = 2|o

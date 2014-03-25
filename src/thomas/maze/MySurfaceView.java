@@ -1,48 +1,62 @@
 package thomas.maze;
 
 import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
+import android.graphics.*;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import thomas.maze.model.Case;
+import thomas.maze.model.Type;
 
 public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
-    // Le holder
     SurfaceHolder mSurfaceHolder;
-    // Le thread dans lequel le dessin se fera DrawingThread mThread;
     DrawingThread mThread;
-    Paint mPaint;
-    RectF mRect = new RectF(10, 10, 780, 1100);
-    RectF mRect2 = new RectF(100, 100, 580, 800);
+    Paint painter;
+    private Controller c;
+    private float width, height, delta;
+    private Bitmap wall, background;
 
-    public MySurfaceView(Context context) {
+    public MySurfaceView(Context context, Controller c) {
         super(context);
+        this.c = c;
         mSurfaceHolder = getHolder();
         mSurfaceHolder.addCallback(this);
         mThread = new DrawingThread();
-        mPaint = new Paint();
-        mPaint.setStyle(Paint.Style.FILL);
+        painter = new Paint();
+        painter.setStyle(Paint.Style.FILL);
     }
 
     @Override
-    protected void onDraw(Canvas pCanvas) {
-        // Dessinez ici !
-        int x = 200;
-        int y = 100;
-        pCanvas.drawColor(Color.RED);
-        mPaint.setColor(Color.WHITE);
-        mPaint.setTextSize(30);
-        pCanvas.drawRect(mRect, mPaint);
-        mPaint.setColor(Color.GREEN);
-        pCanvas.drawRect(mRect2, mPaint);
-        mPaint.setColor(Color.BLUE);
-        pCanvas.drawText("hello !", 400, 300, mPaint);
-        for (int i = 0; i < 200; i++) {
-            y += 2 * i;
-            pCanvas.drawText("hello !", x, y, mPaint);
+    protected void onDraw(Canvas canvas) {
+        background = BitmapFactory.decodeResource(getResources(),R.drawable.wood);
+        wall = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.wall),(int)delta,(int)delta,false);
+        Case[][] cases = c.getP().getMaze();
+        Case tmp;
+        canvas.drawBitmap(background,-50,-50,painter);
+        painter.setColor(Color.RED);
+        for(int i=0; i<cases.length; i++ ){
+            for (int j=0 ; j<cases[i].length; j++){
+                tmp = cases[i][j];
+                switch (tmp.getType()){
+                    case Wall:
+                        canvas.drawBitmap(wall, tmp.left,tmp.top,painter);
+                        break;
+                    case Hole:
+                        painter.setColor(Color.BLACK);
+                        canvas.drawCircle(tmp.left+delta/2, tmp.top+delta/2, delta/2,painter);
+                        break;
+                    case Start:
+                        painter.setColor(Color.GREEN);
+                        canvas.drawCircle(tmp.left+delta/2, tmp.top+delta/2, delta/2,painter);
+                        break;
+                    case End:
+                        painter.setColor(Color.RED);
+                        canvas.drawCircle(tmp.left+delta/2, tmp.top+delta/2, delta/2,painter);
+                        break;
+                    default: // case if empty => do nothing
+                        break;
+                }
+            }
         }
     }
 
@@ -55,6 +69,21 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder holder) {
         mThread.keepDrawing = true;
         mThread.start();
+        this.width = getWidth();
+        this.height = getHeight();
+        Case[][] maze = c.getP().getMaze();
+        delta = width/ maze[0].length;
+        if((height / maze.length) < (width/ maze[0].length))
+            delta = height / maze.length;
+        for(int i=0; i<maze.length; i++){
+            for(int j=0; j<maze[0].length; j++){
+                maze[i][j].setPosition(j*delta, i*delta, (j+1)*delta, (i+1)*delta);
+            }
+        }
+
+        // Init images
+        background = BitmapFactory.decodeResource(getResources(),R.drawable.wood);
+        wall = Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(),R.drawable.wall),(int)delta,(int)delta,false);
     }
 
     @Override
@@ -71,7 +100,6 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     }
 
     private class DrawingThread extends Thread {
-        // pour arreter le dessin quand il le faut
         boolean keepDrawing = true;
 
         public void run() {
@@ -96,9 +124,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                     Thread.sleep(20);
                 } catch (InterruptedException e) {
                 }
-
             }
         }
-
     }
 }

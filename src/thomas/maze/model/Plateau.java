@@ -7,7 +7,7 @@ import java.io.*;
 
 public class Plateau implements FileInterface {
 
-    private Cases[][] maze;
+    private Case[][] maze;
 
     public Plateau() {
     }
@@ -22,14 +22,14 @@ public class Plateau implements FileInterface {
             int width, height;
             height = Integer.parseInt(br.readLine());
             width = Integer.parseInt(br.readLine());
-            maze = new Cases[height][width];
+            maze = new Case[height][width];
             String line;
-            Cases c;
+            Case c;
             for (int i = 0; i < height; i++) {
                 line = br.readLine();
                 for (int j = 0; j < width; j++) {
                     try {
-                        c = new Cases(convertFileCharToType(line.charAt(j)), i, j);
+                        c = new Case(convertFileCharToType(line.charAt(j)), i, j);
                         maze[i][j] = c;
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -44,7 +44,7 @@ public class Plateau implements FileInterface {
         }
         if(!valideMaze()){
             Log.d("logcat", "Maze not valide");
-            maze = new Cases[0][0];
+            maze = new Case[0][0];
         }
     }
 
@@ -99,5 +99,9 @@ public class Plateau implements FileInterface {
             }
         }
         return hasEnd && hasStart;
+    }
+
+    public Case[][] getMaze() {
+        return maze;
     }
 }

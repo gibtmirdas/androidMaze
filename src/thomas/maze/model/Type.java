@@ -2,7 +2,7 @@ package thomas.maze.model;
 
 import thomas.maze.model.utils.FileInterface;
 
-enum Type implements FileInterface {
+public enum Type implements FileInterface {
 	Wall(WALL), Hole(HOLE), Empty(EMPTY), Start(START), End(END);
 
 	private char symbol;
