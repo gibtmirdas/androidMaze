@@ -17,6 +17,7 @@ public class Plateau implements FileInterface {
      * @param fileName
      */
     public void readFile(String fileName) {
+		maze = null;
         try {
             BufferedReader br = new BufferedReader(new FileReader(new File(fileName)));
             int width, height;

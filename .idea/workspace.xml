@@ -15,18 +15,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f6a62311-83ee-42a4-81be-9d02abc3c0a1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/Thumbs.db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/wall.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/wood.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thomas/maze/model/Case.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/thomas/maze/Controller.java" />
-      <change type="DELETED" beforePath="C:\Users\thomas\IdeaProjects\TP4\src\thomas\maze\model\Cases.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AndroidManifest.xml" afterPath="$PROJECT_DIR$/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/thomas/maze/model/utils/FileInterface.java" afterPath="$PROJECT_DIR$/src/thomas/maze/model/utils/FileInterface.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/thomas/maze/MainActivity.java" afterPath="$PROJECT_DIR$/src/thomas/maze/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/thomas/maze/MySurfaceView.java" afterPath="$PROJECT_DIR$/src/thomas/maze/MySurfaceView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/thomas/maze/model/Plateau.java" afterPath="$PROJECT_DIR$/src/thomas/maze/model/Plateau.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/thomas/maze/model/Type.java" afterPath="$PROJECT_DIR$/src/thomas/maze/model/Type.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/maze1.txt" afterPath="$PROJECT_DIR$/maze1.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -92,10 +81,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Plateau.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Plateau.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/thomas/maze/model/Plateau.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="54" selection-start="2651" selection-end="2651" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="1921">
+            <state line="35" column="44" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.5830654" vertical-offset="0" max-vertical-offset="1853">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/thomas/maze/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="5" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="561">
               <folding />
             </state>
           </provider>
@@ -104,7 +102,7 @@
       <file leaf-file-name="maze1.txt" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/maze1.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="306">
+            <state line="17" column="40" selection-start="661" selection-end="661" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
               <folding />
             </state>
           </provider>
@@ -119,10 +117,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MySurfaceView.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MySurfaceView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/thomas/maze/MySurfaceView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="53" column="68" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.9168704" vertical-offset="526" max-vertical-offset="2295">
+            <state line="75" column="60" selection-start="2845" selection-end="2845" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="2295">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,23 +172,23 @@
         <option value="$PROJECT_DIR$/src/thomas/maze/model/Type/Depart.java" />
         <option value="$PROJECT_DIR$/src/thomas/maze/model/utils/FileInterface.java" />
         <option value="$PROJECT_DIR$/src/thomas/maze/model/Cases.java" />
-        <option value="$PROJECT_DIR$/src/thomas/maze/model/Plateau.java" />
         <option value="$PROJECT_DIR$/src/thomas/maze/model/Boule.java" />
         <option value="$PROJECT_DIR$/src/thomas/maze/Controller.java" />
         <option value="$PROJECT_DIR$/src/thomas/maze/model/Case.java" />
         <option value="$PROJECT_DIR$/src/thomas/maze/MainActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/maze1.txt" />
         <option value="$PROJECT_DIR$/src/thomas/maze/model/Type.java" />
         <option value="$PROJECT_DIR$/src/thomas/maze/MySurfaceView.java" />
+        <option value="$PROJECT_DIR$/maze1.txt" />
+        <option value="$PROJECT_DIR$/src/thomas/maze/model/Plateau.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="754" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -234,8 +232,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -368,6 +364,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -638,6 +636,23 @@
     </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="f6a62311-83ee-42a4-81be-9d02abc3c0a1" name="Default" comment="" />
@@ -652,6 +667,8 @@
       <workItem from="1395755670231" duration="2412000" />
       <workItem from="1395760103694" duration="2937000" />
       <workItem from="1395780511192" duration="72000" />
+      <workItem from="1395782320813" duration="1000" />
+      <workItem from="1395856640944" duration="4763000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit&#10;">
       <created>1395589018500</created>
@@ -661,11 +678,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19590000" />
+    <option name="totallyTimeSpent" value="24354000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -674,27 +691,27 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26903024" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32766616" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32638165" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17862372" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16822916" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32846716" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329429" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32921174" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39876354" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -721,6 +738,29 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/thomas/maze/MySurfaceView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="68" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="2295">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/thomas/maze/model/Type.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="22" selection-start="225" selection-end="225" vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="391">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/thomas/maze/model/Case.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="54" selection-start="471" selection-end="471" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="952">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/thomas/maze/MySurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="68" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.0" vertical-offset="526" max-vertical-offset="2295">
@@ -1000,13 +1040,6 @@
         <state line="13" column="0" selection-start="259" selection-end="259" vertical-scroll-proportion="0.4180929" vertical-offset="16" max-vertical-offset="425" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/thomas/maze/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="35" selection-start="756" selection-end="756" vertical-scroll-proportion="0.3765281" vertical-offset="101" max-vertical-offset="561">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="16" selection-start="511" selection-end="511" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="408">
@@ -1021,20 +1054,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/maze1.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="17" selection-start="128" selection-end="128" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/thomas/maze/model/Plateau.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="54" selection-start="2651" selection-end="2651" vertical-scroll-proportion="0.0" vertical-offset="815" max-vertical-offset="1836">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/thomas/maze/model/Case.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="54" selection-start="471" selection-end="471" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="884">
@@ -1042,27 +1061,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-15/com/android/server/wm/WindowManagerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7146" column="0" selection-start="298826" selection-end="298826" vertical-scroll-proportion="0.0" vertical-offset="118752" max-vertical-offset="166226" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-15/android/os/Binder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="419" column="79" selection-start="14325" selection-end="14325" vertical-scroll-proportion="0.46391752" vertical-offset="6552" max-vertical-offset="6987" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/android-sdk/sources/android-15/com/android/server/wm/WindowState.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1528" column="0" selection-start="61345" selection-end="61345" vertical-scroll-proportion="0.31540343" vertical-offset="24674" max-vertical-offset="30600" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/thomas/maze/MySurfaceView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="53" column="68" selection-start="2094" selection-end="2094" vertical-scroll-proportion="0.9168704" vertical-offset="526" max-vertical-offset="2295">
+        <state line="75" column="60" selection-start="2845" selection-end="2845" vertical-scroll-proportion="0.0" vertical-offset="901" max-vertical-offset="2295">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/thomas/maze/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="5" selection-start="796" selection-end="796" vertical-scroll-proportion="0.0" vertical-offset="11" max-vertical-offset="561">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/maze1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="40" selection-start="661" selection-end="661" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/thomas/maze/model/Plateau.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="35" column="44" selection-start="1069" selection-end="1069" vertical-scroll-proportion="0.5830654" vertical-offset="0" max-vertical-offset="1853">
+          <folding />
         </state>
       </provider>
     </entry>
