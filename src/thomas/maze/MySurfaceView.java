@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.*;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import thomas.maze.model.Boule;
 import thomas.maze.model.Case;
 import thomas.maze.model.Type;
 
@@ -45,10 +46,10 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                         painter.setColor(Color.BLACK);
                         canvas.drawCircle(tmp.left+delta/2, tmp.top+delta/2, delta/2,painter);
                         break;
-                    case Start:
-                        painter.setColor(Color.GREEN);
-                        canvas.drawCircle(tmp.left+delta/2, tmp.top+delta/2, delta/2,painter);
-                        break;
+//                    case Start:
+//                        painter.setColor(Color.GREEN);
+//                        canvas.drawCircle(tmp.left+delta/2, tmp.top+delta/2, delta/2,painter);
+//                        break;
                     case End:
                         painter.setColor(Color.RED);
                         canvas.drawCircle(tmp.left+delta/2, tmp.top+delta/2, delta/2,painter);
@@ -58,6 +59,10 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                 }
             }
         }
+
+		// Draw ball
+		painter.setColor(Color.BLUE);
+		canvas.drawCircle(c.getB().getPosX()+delta/2, c.getB().getPosY()+delta/2, delta/2, painter);
     }
 
     @Override
@@ -69,6 +74,8 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder holder) {
         mThread.keepDrawing = true;
         mThread.start();
+
+		// Init positions
         this.width = getWidth();
         this.height = getHeight();
         Case[][] maze = c.getP().getMaze();
@@ -80,6 +87,11 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
                 maze[i][j].setPosition(j*delta, i*delta, (j+1)*delta, (i+1)*delta);
             }
         }
+
+		// Boule position
+		Boule b = Boule.getInstance();
+		b.setPosX(c.getP().getMaze()[c.getP().getStart().x][c.getP().getStart().y].top);
+		b.setPosY(c.getP().getMaze()[c.getP().getStart().x][c.getP().getStart().y].left);
 
         // Init images
         background = BitmapFactory.decodeResource(getResources(),R.drawable.wood);

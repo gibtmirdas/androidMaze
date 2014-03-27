@@ -1,5 +1,8 @@
 package thomas.maze;
 
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Environment;
@@ -11,13 +14,19 @@ import thomas.maze.model.Plateau;
 
 public class MainActivity extends Activity {
     private MySurfaceView viewTest = null;
+	Controller c;
+	SensorManager sm;
+	Sensor accelero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Plateau p = new Plateau();
         p.readFile(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+"/maze1.txt");
-        Controller c = new Controller(p);
+		sm =(SensorManager)getSystemService(Context.SENSOR_SERVICE);
+		accelero = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		sm.registerListener(c,accelero,SensorManager.SENSOR_DELAY_NORMAL);
+        Controller c = new Controller(p,accelero);
         c.start();
         viewTest = new MySurfaceView(this, c);
         c.setSurfaceView(viewTest);
@@ -31,4 +40,15 @@ public class MainActivity extends Activity {
         return true;
     }
 
+	@Override
+	protected void onPause() {
+		super.onPause();
+		sm.unregisterListener(c,accelero);
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		sm.registerListener(c,accelero,SensorManager.SENSOR_DELAY_NORMAL);
+	}
 }

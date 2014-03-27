@@ -8,12 +8,22 @@ import android.graphics.RectF;
  */
 public class Boule {
 
+	private static Boule b;
     private float posX, posY, vX, vY, vMax, size;
     private Color color;
     private RectF rect;
+	private float frottement = 10;
 
-    public Boule() {
+    private Boule() {
     }
+
+	public static Boule getInstance(){
+		if(b == null){
+			b = new Boule();
+			return b;
+		}
+		return b;
+	}
 
 	public void setMvt(float posX, float posY, float vX, float vY, float vMax){
 		this.posX = posX;
@@ -49,7 +59,8 @@ public class Boule {
     }
 
     public void setvX(float vX) {
-        this.vX = vX;
+		this.vX+= vX;
+		posX = posX + this.vX;
     }
 
     public float getvY() {
@@ -57,7 +68,8 @@ public class Boule {
     }
 
     public void setvY(float vY) {
-        this.vY = vY;
+		this.vY += vY;
+		posY = posY + this.vY;
     }
 
     public float getvMax() {

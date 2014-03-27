@@ -1,5 +1,6 @@
 package thomas.maze.model;
 
+import android.graphics.Point;
 import android.util.Log;
 import thomas.maze.model.utils.FileInterface;
 
@@ -8,6 +9,7 @@ import java.io.*;
 public class Plateau implements FileInterface {
 
     private Case[][] maze;
+	private Point start, end;
 
     public Plateau() {
     }
@@ -86,13 +88,16 @@ public class Plateau implements FileInterface {
         for(int i=0; i<maze.length; i++){
             for(int j=0; j<maze[i].length; j++){
                 //Check start
-                if(maze[i][j].getType() == Type.Start)
+                if(maze[i][j].getType() == Type.Start){
                     hasStart = true;
+					start = new Point(i,j);
+				}
                 // Check End
-                if(maze[i][j].getType() == Type.End)
+                if(maze[i][j].getType() == Type.End){
                     hasEnd = true;
+					end = new Point(i,j);
                 // Check Border
-                if(i == 0 || j == 0 || i == (maze.length-1) || j== (maze[i].length-1))
+				}if(i == 0 || j == 0 || i == (maze.length-1) || j== (maze[i].length-1))
                     if(maze[i][j].getType() != Type.Wall){
                         Log.d("logcat", "Not bordered");
                         return false;
@@ -105,4 +110,12 @@ public class Plateau implements FileInterface {
     public Case[][] getMaze() {
         return maze;
     }
+
+	public Point getStart() {
+		return start;
+	}
+
+	public Point getEnd() {
+		return end;
+	}
 }
