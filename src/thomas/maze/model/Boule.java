@@ -1,13 +1,9 @@
 package thomas.maze.model;
 
-import android.graphics.Color;
 import android.graphics.RectF;
-import android.util.Log;
+import thomas.maze.model.utils.GameState;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Created by thomas on 11.03.14.
@@ -21,8 +17,7 @@ public class Boule {
     //private Color color;
     private RectF rect;
     private long timePrevious = 0;
-    // Get direction for collision
-    private boolean verticalPositive, horizontalPositive;
+    private GameState gameState = GameState.PLAY;
 
     private Boule() {
         rect = new RectF();
@@ -54,8 +49,8 @@ public class Boule {
         rect.bottom = posX + size;
     }
 
-    public void setPositionFromTile(float xAccel, float yAccel) {
-        // set delta time
+    public GameState setPositionFromTile(float xAccel, float yAccel) {
+        // set delta time with previous frame
         float dt = (System.currentTimeMillis() - timePrevious) / 100f;
         if (timePrevious == 0)
             dt = 0;
@@ -67,86 +62,75 @@ public class Boule {
         vxTmp = vxOld + xAccel * dt;
         vyTmp = vyOld + yAccel * dt;
 
-        // Set direction booleans
-        horizontalPositive = vxTmp >= 0 ? true:false;
-        verticalPositive = vxTmp >= 0 ? true:false;
-
         // add friction
         vxTmp *= .95;
         vyTmp *= .95;
-        // TODO test if velocity < vMax
-        vx = vxTmp;
-        vy = vyTmp;
 
-        /****************
-         * set position *
-         ****************/
+        // if vTmp > vMax => set vTmp to vMax
+        vx = vxTmp > vMax ? vMax : vxTmp;
+        vy = vyTmp > vMax ? vMax : vyTmp;
+
+        /***************************************
+         * set position depending on collision *
+         ***************************************/
         float xOld = posx, yOld = posy, xTmp, yTmp;
         xTmp = xOld + vx * dt;
         yTmp = yOld + vy * dt;
 
+        // 1st => test if can move horizontally
         posx = xTmp;
-        posy = yTmp;
-
-        /*****************
-         * set rectangle *
-         *****************/
         rect.left = posx;
-        rect.top = posy;
         rect.right = posx + size;
-        rect.bottom = posy + size;
-
-        // TODO test if collision
-        int col = collide();
-        if(col != 0){
-            if(col == 2 || col == 3){
-                vy = 0;
-                this.posy = yOld;
-            }
-            if(col == 1 || col == 3){
-                vx = 0;
-                this.posx = xOld;
-            }
+        if(collide2()){
+            posx = xOld;
+            rect.left = posx;
+            rect.right = posx + size;
+            vx = 0;
         }
+        // 2nd => test if can move vertically
+        posy = yTmp;
+        rect.top = posy;
+        rect.bottom = posy + size;
+        if(collide2()){
+            posy = yOld;
+            rect.top = posy;
+            rect.bottom = posy + size;
+            vy = 0;
+        }
+
+        /**************
+         * Game Won ? *
+         **************/
+        isWon();
+
+        return gameState;
+    }
+
+    private void isWon(){
+        if(endCase==null)
+            return;
+        if(RectF.intersects(rect,endCase))
+            gameState = GameState.WIN;
     }
 
     /**
      * Check if boule collide a rectangle in wallsNHoles
-     * @return 0: no collision - 1: collide on x axis - 2: collide on y axis - 3: both
      */
-    private int collide(){
-        int ret = 0;
-        Float[] deltas = new Float[]{Float.MAX_VALUE,Float.MAX_VALUE,Float.MAX_VALUE,Float.MAX_VALUE};
+    private boolean collide2(){
         for(Case c : wallsNHoles){
-            if(RectF.intersects(c,rect)) {
-                if(rect.right > c.left && rect.left < c.left){             // Ball on left
-                    Log.d("logcat","left");
-                    deltas[0] = rect.right - c.left;
-                }if(rect.left < c.right && rect.right > c.right){         // Ball on Right
-                    Log.d("logcat","Right");
-                    deltas[1] = c.right - rect.left;
-                }if(rect.top < c.bottom && rect.bottom > c.bottom){             // Ball on Bottom
-                    Log.d("logcat","Bottom");
-                    deltas[2] = c.bottom - rect.top;
-                }if(rect.bottom > c.top && rect.top < c.top){             // Ball on Top
-                    Log.d("logcat","Top");
-                    deltas[3] = rect.bottom - c.top;
-                }
-
-                // Get minimums delta to identify where the intersection is exacly
-                List<Float> list = Arrays.asList(deltas);
-                int indexMin = list.indexOf(Collections.min(list));
-                // Left and Right
-                if(indexMin < 2){
-                    if(ret == 2) ret = 3;
-                    else if(ret != 3) ret = 1;
-                }else{
-                    if(ret == 1) ret = 3;
-                    else if(ret != 3) ret = 2;
-                }
+            if(RectF.intersects(c,rect)){
+                // Case if we hit a Hole => we can approach him by 2/3 of the ball size, otherwise we loose the game
+                if(c.getType()== Type.Hole){
+                    double distance = Math.sqrt((c.centerX()-rect.centerX())*(c.centerX()-rect.centerX()) + (c.centerY()-rect.centerY())*(c.centerY()-rect.centerY()));
+                    if(distance < 2*size/3){
+                        gameState = GameState.LOOSE;
+                        return true;
+                    }
+                }else
+                    return true;
             }
         }
-        return ret;
+        return false;
     }
 
     public float getPosx() {

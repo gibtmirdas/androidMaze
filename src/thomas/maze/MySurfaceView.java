@@ -12,7 +12,7 @@ import thomas.maze.model.Type;
 public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
     SurfaceHolder mSurfaceHolder;
-    DrawingThread mThread;
+    public DrawingThread mThread;
     Paint painter;
     private Controller c;
     private float width, height, delta;
@@ -130,8 +130,8 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         }
     }
 
-    private class DrawingThread extends Thread {
-        boolean keepDrawing = true;
+    public class DrawingThread extends Thread {
+        public boolean keepDrawing = true;
 
         public void run() {
             while (keepDrawing) {
