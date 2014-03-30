@@ -1,14 +1,18 @@
 package thomas.maze.model;
 
 import android.graphics.Point;
+import android.graphics.RectF;
 import android.util.Log;
 import thomas.maze.model.utils.FileInterface;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Plateau implements FileInterface {
 
     private Case[][] maze;
+    public ArrayList<Case> wallsNHoles;
+    private Case startCase, endCase;
 	private Point start, end;
 
     public Plateau() {
@@ -26,6 +30,7 @@ public class Plateau implements FileInterface {
             height = Integer.parseInt(br.readLine());
             width = Integer.parseInt(br.readLine());
             maze = new Case[height][width];
+            wallsNHoles = new ArrayList<Case>();
             String line;
             Case c;
             for (int i = 0; i < height; i++) {
@@ -73,16 +78,6 @@ public class Plateau implements FileInterface {
         throw new Exception("logcat : Character not recognized for maze creating");
     }
 
-    public void printMaze(){
-        for (int i=0 ; i< maze.length ; i++){
-            String val = "";
-            for (int j=0 ; j< maze[i].length ; j++){
-                val += maze[i][j].getType();
-            }
-            Log.d("logcat", val);
-        }
-    }
-
     private boolean valideMaze(){
         boolean hasStart= false, hasEnd=false;
         for(int i=0; i<maze.length; i++){
@@ -118,4 +113,24 @@ public class Plateau implements FileInterface {
 	public Point getEnd() {
 		return end;
 	}
+
+    public ArrayList<Case> getWallsNHoles() {
+        return wallsNHoles;
+    }
+
+    public Case getStartCase() {
+        return startCase;
+    }
+
+    public Case getEndCase() {
+        return endCase;
+    }
+
+    public void setStartCase(Case startCase) {
+        this.startCase = startCase;
+    }
+
+    public void setEndCase(Case endCase) {
+        this.endCase = endCase;
+    }
 }
