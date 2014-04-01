@@ -5,19 +5,18 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
-import android.os.Environment;
-import android.os.Handler;
-import android.os.Message;
 import android.util.Log;
 import android.view.Menu;
-import android.view.WindowManager;
-import thomas.maze.model.Boule;
 import thomas.maze.model.Plateau;
 import thomas.maze.model.SensorListener;
 import thomas.maze.model.utils.GameState;
 import thomas.maze.model.utils.Observer;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 public class MainActivity extends Activity implements Observer{
     private MySurfaceView viewTest = null;
@@ -28,8 +27,16 @@ public class MainActivity extends Activity implements Observer{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        String model = Build.MODEL;
+        Log.d("logcat","Model: "+model);
         Plateau p = new Plateau();
-        p.readFile(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS)+"/maze1.txt");
+        InputStream is = null;
+        try {
+            is = this.getResources().getAssets().open("maze1.txt");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        p.readFile(is);
 		sm =(SensorManager)getSystemService(Context.SENSOR_SERVICE);
 		accelero = sm.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		sm.registerListener(SensorListener.getInstance(),accelero,SensorManager.SENSOR_DELAY_NORMAL);

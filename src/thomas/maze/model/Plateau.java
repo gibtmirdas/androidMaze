@@ -22,10 +22,11 @@ public class Plateau implements FileInterface {
      * Create a maze by reading a text file
      * @param fileName
      */
-    public void readFile(String fileName) {
+    public void readFile(InputStream is) {
 		maze = null;
         try {
-            BufferedReader br = new BufferedReader(new FileReader(new File(fileName)));
+            BufferedReader br = new BufferedReader(
+                new InputStreamReader(is));
             int width, height;
             height = Integer.parseInt(br.readLine());
             width = Integer.parseInt(br.readLine());

@@ -13,7 +13,7 @@ public class Boule {
     private static Boule b;
     private ArrayList<Case> wallsNHoles;
     private Case endCase;
-    private float posx = 0, posy = 0, vx = 0, vy = 0, size = 0, vMax=10;
+    private float posx = 0, posy = 0, vx = 0, vy = 0, size = 0, vMax=20;
     //private Color color;
     private RectF rect;
     private long timePrevious = 0;
@@ -50,6 +50,11 @@ public class Boule {
     }
 
     public GameState setPositionFromTile(float xAccel, float yAccel) {
+        /* Convert axis */
+        float tmp = xAccel;
+        xAccel = yAccel;
+        yAccel = -tmp;
+
         // set delta time with previous frame
         float dt = (System.currentTimeMillis() - timePrevious) / 100f;
         if (timePrevious == 0)
