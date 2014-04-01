@@ -1,9 +1,7 @@
 package thomas.maze;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.hardware.Sensor;
+import android.util.Log;
 import thomas.maze.model.Boule;
 import thomas.maze.model.Plateau;
 import thomas.maze.model.SensorListener;
@@ -31,10 +29,22 @@ public class Controller extends Thread implements Observable{
 
     @Override
     public void run() {
-        b = Boule.getInstance();
-        b.initiate(p.getWallsNHoles(), p.getEndCase());
+		// Wait for Plateau to be fully initiate
+		while(p.getEndCase() == null){
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		b = Boule.getInstance();
+		b.initiate(p.getWallsNHoles(), p.getEndCase());
+
+		// If cannot acces accelerometer, stop thread
         if (accelero == null)
             return;
+
+		// Start Game Controller !
         while (running) {
             setBoulePos();
             try {
@@ -46,7 +56,11 @@ public class Controller extends Thread implements Observable{
 
     private void setBoulePos() {
         accelPos = SensorListener.getVector();
-        updateObservateur(b.setPositionFromTile(accelPos[0], accelPos[1]));
+		GameState s = b.setPositionFromTile(accelPos[0], accelPos[1]);
+		if(s != GameState.PLAY){
+			running = false;
+			updateObservateur(s);
+		}
     }
 
     public void setSurfaceView(MySurfaceView surfaceView) {
@@ -71,9 +85,9 @@ public class Controller extends Thread implements Observable{
     }
 
     @Override
-    public void updateObservateur(GameState gs) {
+    public void updateObservateur(GameState s) {
         if(obs != null)
-            obs.update(gs);
+            obs.update(s);
     }
 
     @Override

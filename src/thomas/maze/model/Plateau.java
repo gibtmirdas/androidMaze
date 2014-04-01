@@ -12,7 +12,7 @@ public class Plateau implements FileInterface {
 
     private Case[][] maze;
     public ArrayList<Case> wallsNHoles;
-    private Case startCase, endCase;
+    private Case endCase;
 	private Point start, end;
 
     public Plateau() {
@@ -20,7 +20,6 @@ public class Plateau implements FileInterface {
 
     /**
      * Create a maze by reading a text file
-     * @param fileName
      */
     public void readFile(InputStream is) {
 		maze = null;
@@ -111,24 +110,12 @@ public class Plateau implements FileInterface {
 		return start;
 	}
 
-	public Point getEnd() {
-		return end;
-	}
-
     public ArrayList<Case> getWallsNHoles() {
         return wallsNHoles;
     }
 
-    public Case getStartCase() {
-        return startCase;
-    }
-
     public Case getEndCase() {
         return endCase;
-    }
-
-    public void setStartCase(Case startCase) {
-        this.startCase = startCase;
     }
 
     public void setEndCase(Case endCase) {
